@@ -1,10 +1,10 @@
-## Fork from https://github.com/vednoc/dark-whatsapp to use gruvbox theme
+* Fork from https://github.com/vednoc/dark-whatsapp to use gruvbox theme
 
 I changed the `whatsapp.sh` to run on a local `stylus` instalation, so just running `npm ci` is enough to be able to run the script and generate the `custom.user.css`
 
-![gruv](images/gruvbox-theme.png)
+#+HTML: <img src="images/gruvbox-theme.png" width="100%"/>
 
-## Original:
+* Original:
 
 #+STARTUP: nofold
 #+HTML: <div align="center">
