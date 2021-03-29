@@ -70,8 +70,8 @@ compile() {
 
     sed -n '/^\/\//,$p; 1i @import("metadata.styl");' $input > $temp
 
-    if command -v stylus >/dev/null; then
-        stylus $temp -o $output
+    if command -v ./node_modules/stylus/bin/stylus >/dev/null; then
+        ./node_modules/stylus/bin/stylus $temp -o $output
         rm $temp
     elif ! command -v npm >/dev/null; then
         echo "You're missing ~npm~ and ~Node.js~ libraries." >&2

@@ -18,6 +18,7 @@
 
 @var color    _bg        'Base background color        ' #1f232a
 @var color    _fg        'Base foreground color        ' #eeeeee
+@var color    _fg_dim    'Dimmed foreground color      ' #eeeeee
 @var color    _ac        'Base accent color            ' #7289da
 
 @var range    _bg_a      'Adjust background color tones' [0, -25, 25, 0.1, '%']
@@ -164,6 +165,7 @@ vendors = official
 if (theme == 'custom') {
     BG       = _bg
     FG       = _fg
+    FG_DIM   = _fg_dim
     AC       = _ac
 } else if (theme == 'old') {
     BG       = #1f232a
@@ -234,12 +236,12 @@ OM = _omsg
             '5': darken(BG, b5),
         },
         fg: {
-            '0': darken(FG, f1),
-            '1': darken(FG, 0%),
-            '2': darken(FG, f2),
-            '3': darken(FG, f3),
-            '4': darken(FG, f4),
-            '5': darken(FG, f5),
+            '0': FG_DIM,
+            '1': FG,
+            '2': FG_DIM,
+            '3': FG_DIM,
+            '4': FG_DIM,
+            '5': FG_DIM,
         },
         ac: {
             '0': mix(darken(BG,  0%), AC, 0%),
@@ -353,19 +355,10 @@ OM = _omsg
 }
 
 @-moz-document domain('web.whatsapp.com') {
-    $top  = "Hi there! Since I quit WA a while ago, and also been busy working "
-    $top += "on a rewrite for UserStyles.world (as a replacement for USo), I am"
-    $top += " looking for someone to help maintainin DWA."
-    $top += "\A\ALink to USw: https://userstyles.world 👀 \A\A"
-    $top += "More about v3.6.1 update, as always, in the changelog:"
-    $btm  = "\A https://github.com/vednoc/dark-whatsapp\A\A\A"
-    $btm += "P.S. CSS can not add links, only fake/pseudo text."
 
     :root:not(#z), .dark:not(#z) {
         /// Userstyle info and announcements.
-        --version: '🌚 Dark-WhatsApp v3.6.1 — March 3rd, 2021'
-        --message: $top
-        --changes: $btm
+        --version: 'GruvboxDark fork from Dark-WhatsApp v3.6.1 — March 3rd, 2021'
 
         /// UI font.
         --ui-font: ui_font, Segoe UI, Helvetica Neue, Helvetica, Lucida Grande,
@@ -390,20 +383,6 @@ OM = _omsg
         /// Emoji opacity.
         --emoji-o: emoji_o
 
-        /// App background.
-        image_path  = 'https://raw.githubusercontent.com/'
-        image_path += 'vednoc/dark-whatsapp/master/images/bg-blur'
-        if (app_image == 'bg-high') {
-            --bg-image: url(image_path + '-high.jpg')
-        } else if (app_image == 'bg-low') {
-            --bg-image: url(image_path + '-low.jpg')
-        } else if (app_image == 'bg-none') {
-            --bg-image: url(image_path + '-none.jpg')
-        } else if (app_image == 'custom') {
-            --bg-image: image_url
-        } else {
-            --bg-image: none
-        }
         --bg-opacity: bg_opacity
         --bg-blur:    bg_blur
         --bg-blur-s:  calc(-2 * var(--bg-blur))
