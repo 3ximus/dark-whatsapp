@@ -16,10 +16,12 @@
     'Dark gray (new)  ': 'new',
 }
 
-@var color    _bg        'Base background color        ' #1f232a
-@var color    _fg        'Base foreground color        ' #eeeeee
-@var color    _fg_dim    'Dimmed foreground color      ' #eeeeee
-@var color    _ac        'Base accent color            ' #7289da
+@var color    _bg            'Base background color        ' #1f232a
+@var color    _bg_darker     'Base background color        ' #1f232a
+@var color    _bg_lighter    'Base background color        ' #1f232a
+@var color    _fg            'Base foreground color        ' #eeeeee
+@var color    _fg_dim        'Dimmed foreground color      ' #eeeeee
+@var color    _ac            'Base accent color            ' #7289da
 
 @var range    _bg_a      'Adjust background color tones' [0, -25, 25, 0.1, '%']
 @var range    _fg_a      'Adjust foreground color tones' [0, -25, 25, 0.1, '%']
@@ -164,6 +166,8 @@ vendors = official
 /// Feat -> Base color-scheme toggle. #32
 if (theme == 'custom') {
     BG       = _bg
+    BG_DARK  = _bg_darker
+    BG_LIGHT = _bg_lighter
     FG       = _fg
     FG_DIM   = _fg_dim
     AC       = _ac
@@ -228,12 +232,12 @@ OM = _omsg
     /// Generate tones for base colors.
     C = {
         bg: {
-            '0': darken(BG, b1),
-            '1': darken(BG, 0%),
-            '2': darken(BG, b2),
-            '3': darken(BG, b3),
-            '4': darken(BG, b4),
-            '5': darken(BG, b5),
+            '0': BG,
+            '1': BG,
+            '2': BG,
+            '3': BG_LIGHT,
+            '4': BG_DARK,
+            '5': BG,
         },
         fg: {
             '0': FG_DIM,
